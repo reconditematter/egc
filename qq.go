@@ -13,6 +13,13 @@ type QQ struct {
 	r big.Rat
 }
 
+// Ratio -- returns the rational number p/q.
+func Ratio(p, q int64) QQ {
+	var c big.Rat
+	c.SetFrac64(p, q)
+	return QQ{c}
+}
+
 // Neg -- returns -a.
 func (a QQ) Neg() QQ {
 	var c big.Rat
