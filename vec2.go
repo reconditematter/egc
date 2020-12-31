@@ -24,7 +24,7 @@ func (u Vec2) Y() QQ {
 	return u.c[1]
 }
 
-// C(0) returns u.x; C(1) returns u.y.
+// C -- C(0) returns u.x; C(1) returns u.y.
 func (u Vec2) C(i int) QQ {
 	return u.c[i]
 }
