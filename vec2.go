@@ -14,6 +14,27 @@ func NewVec2(x, y QQ) Vec2 {
 	return Vec2{[2]QQ{x, y}}
 }
 
+var (
+	vecz = Vec2{[2]QQ{qq0, qq0}}
+	veci = Vec2{[2]QQ{qq1, qq0}}
+	vecj = Vec2{[2]QQ{qq0, qq1}}
+)
+
+// ZVec2 -- returns the zero vector (0,0).
+func ZVec2() Vec2 {
+	return vecz
+}
+
+// IVec2 -- returns the unit vector (1,0).
+func IVec2() Vec2 {
+	return veci
+}
+
+// JVec2 -- returns the unit vector (0,1).
+func JVec2() Vec2 {
+	return vecj
+}
+
 // X -- returns u.x.
 func (u Vec2) X() QQ {
 	return u.c[0]

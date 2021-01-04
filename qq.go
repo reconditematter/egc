@@ -13,6 +13,32 @@ type QQ struct {
 	r big.Rat
 }
 
+var (
+	qq0  = Ratio(0, 1)
+	qq1  = Ratio(1, 1)
+	qq2  = Ratio(2, 1)
+	qq3  = Ratio(3, 1)
+	qq4  = Ratio(4, 1)
+	qq5  = Ratio(5, 1)
+	qq6  = Ratio(6, 1)
+	qq7  = Ratio(7, 1)
+	qq8  = Ratio(8, 1)
+	qq9  = Ratio(9, 1)
+	qq10 = Ratio(10, 1)
+)
+
+var (
+	qq2r  = Ratio(1, 2)
+	qq3r  = Ratio(1, 3)
+	qq4r  = Ratio(1, 4)
+	qq5r  = Ratio(1, 5)
+	qq6r  = Ratio(1, 6)
+	qq7r  = Ratio(1, 7)
+	qq8r  = Ratio(1, 8)
+	qq9r  = Ratio(1, 9)
+	qq10r = Ratio(1, 10)
+)
+
 // Ratio -- returns the rational number p/q.
 func Ratio(p, q int64) QQ {
 	var c big.Rat
@@ -100,4 +126,9 @@ func (a QQ) Max(b QQ) QQ {
 		return a
 	}
 	return b
+}
+
+// String -- returns a string representation of `a`.
+func (a QQ) String() string {
+	return a.r.String()
 }
