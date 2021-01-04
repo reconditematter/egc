@@ -128,7 +128,7 @@ func (a QQ) Max(b QQ) QQ {
 	return b
 }
 
-// String -- returns a string representation of `a`.
+// String -- returns a string representation of `a` in the form "p/q".
 func (a QQ) String() string {
 	return a.r.String()
 }

@@ -95,6 +95,7 @@ func (u Vec2) Dot(v Vec2) QQ {
 	return u.c[0].Mul(v.c[0]).Add(u.c[1].Mul(v.c[1]))
 }
 
+// String -- returns a string representation of `u` in the form "(x,y)".
 func (u Vec2) String() string {
 	return "(" + u.c[0].String() + "," + u.c[1].String() + ")"
 }
