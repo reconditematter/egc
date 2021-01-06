@@ -53,7 +53,7 @@ func (a QQ) Neg() QQ {
 	return QQ{c}
 }
 
-// Inv -- returns 1/a.
+// Inv -- returns 1/a. This method causes a runtime panic when `a` is zero.
 func (a QQ) Inv() QQ {
 	var c big.Rat
 	c.Inv(&a.r)
@@ -95,7 +95,7 @@ func (a QQ) Mul(b QQ) QQ {
 	return QQ{c}
 }
 
-// Div -- returns a/b.
+// Div -- returns a/b. This method causes a runtime panic when `b` is zero.
 func (a QQ) Div(b QQ) QQ {
 	var c big.Rat
 	c.Quo(&a.r, &b.r)
