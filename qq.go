@@ -46,6 +46,16 @@ func Ratio(p, q int64) QQ {
 	return QQ{c}
 }
 
+// RatioF64 -- returns the rational number equal to `f`.
+// This function causes a runtime panic when `f` is not a finite number.
+func RatioF64(f float64) QQ {
+	var c big.Rat
+	if c.SetFloat64(f) == nil {
+		panic("egc.RatioF64: not finite number")
+	}
+	return QQ{c}
+}
+
 // Neg -- returns -a.
 func (a QQ) Neg() QQ {
 	var c big.Rat
