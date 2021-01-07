@@ -40,6 +40,7 @@ var (
 )
 
 // Ratio -- returns the rational number p/q.
+// This function causes a runtime panic when q=0.
 func Ratio(p, q int64) QQ {
 	var c big.Rat
 	c.SetFrac64(p, q)
