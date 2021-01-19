@@ -139,6 +139,12 @@ func (a QQ) Max(b QQ) QQ {
 	return b
 }
 
+// Approx -- returns a floating point number nearest to `a`.
+func (a QQ) Approx() float64 {
+	f, _ := a.r.Float64()
+	return f
+}
+
 // String -- returns a string representation of `a` in the form "p/q".
 func (a QQ) String() string {
 	return a.r.String()
