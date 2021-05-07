@@ -80,14 +80,20 @@ func (p Point2) Cir(q, r Point2) Point2 {
 		q2 := dqx.Sq().Add(dqy.Sq())
 		r2 := drx.Sq().Add(dry.Sq())
 		den := Det2x2([2][2]QQ{{dqx, dqy}, {drx, dry}}).Mul(qq2)
-		if den.Sgn() == 0 {
-			panic("egc.Point2.Cir: collinear points")
-		}
 		dcx := Det2x2([2][2]QQ{{dry, dqy}, {r2, q2}}).Div(den)
 		dcy := Det2x2([2][2]QQ{{drx, dqx}, {r2, q2}}).Div(den)
 		return dcx, dcy.Neg()
 	}
 	//
+	if Orientation2(p, q, r) == 0 {
+		if p.CmpXY(q) == 0 {
+			return q.Mid(r)
+		}
+		if q.CmpXY(r) == 0 {
+			return r.Mid(p)
+		}
+		panic("egc.Point2.Cir: collinear points")
+	}
 	x, y := cct(q.c[0].Sub(p.c[0]), q.c[1].Sub(p.c[1]), r.c[0].Sub(p.c[0]), r.c[1].Sub(p.c[1]))
 	return Point2{[2]QQ{x.Add(p.c[0]), y.Add(p.c[1])}}
 }
